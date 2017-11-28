@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+
+<style>
+    table.my-class {
+        width: 100%;
+    }
+    .my-class th, td {
+        padding: 0px;
+    }
+    table.tblMenu {
+        width: 60%;
+    }
+    .tblMenu td {
+        background-color: #f2f2f2;
+    }
+    a.my-class {
+        color: #10805e;
+    }
+    a.my-class:link {
+        color: #10805e;
+    }
+    a.my-class:active {
+        color: #7fb539;
+    }
+    a.my-class:visited {
+        color: #10805e;
+    }
+    a.my-class:hover {
+        color: #7fb539;
+    }
+    .ui-menu {
+        width: 150px;
+        color: #10805e !important;
+    }
+    .ui-state-active {
+        background-color: #e6e6e6 !important;
+        border: none !important;
+        color: #7fb539 !important;
+    }
+    .ui-state-active a {
+        color: #7fb539 !important;
+    }
+</style>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(function () {
+        $("#menu").menu();
+    });
+</script>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+   
+    <div style="font-family:Arial">
+        <table align="center" style="background-color:#10805e" class="my-class">
+            <tr>
+                <td align="center" style="color:white">
+                    <h1>Student Attendance Tracking System</h1>
+                </td>
+            </tr>
+        </table>
+        <br /><br /><br />
+        <table style="width:100%">
+            <tr>
+                <td style="width:15%" valign="top" align="center">
+                    <ul id="menu" style="line-height: 60px; border: none; font-size:18px">
+                        <li style="background-color: #f2f2f2"><div><b>@Html.ActionLink("Home", "Home", null, new { @class = "my-class" })</b></div></li>
+                        <li></li>
+                        <li style="background-color: #f2f2f2"><div><b>@Html.ActionLink("Record", "Record", null, new { @class = "my-class" })</b></div></li>
+                        <li></li>
+                        <li style="background-color: #f2f2f2">
+                            <div><b>Track</b></div>
+                            <ul>
+                                <li style="background-color: #f2f2f2"><div><b>@Html.ActionLink("By Date", "TrackByDate", null, new { @class = "my-class" })</b></div></li>
+                                <li></li>
+                                <li style="background-color: #f2f2f2"><div><b>@Html.ActionLink("By Student", "TrackByStudent", null, new { @class = "my-class" })</b></div></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+                <td style="width:85%" align="left" valign="top">
+                    @RenderBody()
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
